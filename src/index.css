@@ -1,9 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-dark-900 text-gray-100 font-sans antialiased selection:bg-brand-purple selection:text-white;
+    background: linear-gradient(135deg, #0b0914 0%, #13111c 50%, #1a102f 100%);
+    background-attachment: fixed;
+    color: #f3f4f6;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 }
