@@ -5,6 +5,10 @@
     color-scheme: dark;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: linear-gradient(135deg, #0b0914 0%, #13111c 50%, #1a102f 100%);
     background-attachment: fixed;

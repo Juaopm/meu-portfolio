@@ -22,47 +22,40 @@ export const Header: React.FC = () => {
   const labels = navigation[language];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm border-b border-purple-900/10 transition-all">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#"
           className="flex items-center gap-2 text-xl font-bold tracking-wider text-white group"
         >
-          <span className="text-[#5A189A] group-hover:text-[#7b2cbf] transition-colors">
+          <span className="text-purple-400 group-hover:text-purple-300 transition-colors">
             &lt;
           </span>
-
           <span>João</span>
-
-          <span className="text-[#5A189A] group-hover:text-[#7b2cbf] transition-colors">
+          <span className="text-purple-400 group-hover:text-purple-300 transition-colors">
             /&gt;
           </span>
         </a>
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-          <a href="#sobre" className="hover:text-[#7b2cbf] transition-colors">
-            {labels.about}
-          </a>
-
-          <a
-            href="#habilidades"
-            className="hover:text-[#7b2cbf] transition-colors"
-          >
-            {labels.skills}
-          </a>
-
-          <a
-            href="#projetos"
-            className="hover:text-[#7b2cbf] transition-colors"
-          >
-            {labels.projects}
-          </a>
-
-          <a href="#contato" className="hover:text-[#7b2cbf] transition-colors">
-            {labels.contact}
-          </a>
+          {[
+            { href: "#sobre", label: labels.about },
+            { href: "#habilidades", label: labels.skills },
+            { href: "#projetos", label: labels.projects },
+            { href: "#contato", label: labels.contact },
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="relative hover:text-white transition-colors py-1 group"
+            >
+              {item.label}
+              {/* Linha sutil animada no hover */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
         </nav>
 
         {/* Language Toggle */}
@@ -71,7 +64,7 @@ export const Header: React.FC = () => {
             onClick={() => language === "en" && toggleLanguage()}
             className={
               language === "pt"
-                ? "text-purple-400"
+                ? "text-purple-400 font-semibold"
                 : "text-gray-500 hover:text-gray-300 transition-colors"
             }
           >
@@ -84,7 +77,7 @@ export const Header: React.FC = () => {
             onClick={() => language === "pt" && toggleLanguage()}
             className={
               language === "en"
-                ? "text-purple-400"
+                ? "text-purple-400 font-semibold"
                 : "text-gray-500 hover:text-gray-300 transition-colors"
             }
           >
