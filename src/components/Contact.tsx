@@ -4,6 +4,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowUpRightFromSquare,
   faEnvelope,
+  faFileArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -59,7 +60,7 @@ export function Contact() {
       title: "Vamos construir algo juntos?",
       description:
         "Estou aberto a oportunidades, projetos freelance e conversas sobre tecnologia. Se você tem uma ideia ou quer trocar uma ideia, pode me chamar.",
-      cta: "Vamos conversar",
+      cta: "Baixar Currículo",
       status: "aberto a novas oportunidades",
     },
     en: {
@@ -67,7 +68,7 @@ export function Contact() {
       title: "Let's build something together?",
       description:
         "I'm open to opportunities, freelance projects, and conversations about technology. If you have an idea or just want to talk, feel free to reach out.",
-      cta: "Let's talk",
+      cta: "Download Resume",
       status: "open to new opportunities",
     },
   };
@@ -144,7 +145,7 @@ export function Contact() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA (Download CV) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -153,11 +154,12 @@ export function Contact() {
           className="mt-12"
         >
           <a
-            href="mailto:joaopedromachado830@gmail.com"
+            href="/public/Curriculo.pdf"
+            download="Joao_Pedro_Curriculo.pdf"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium transition-colors shadow-lg shadow-purple-600/20"
           >
-            {text.cta}
-            <span>→</span>
+            <FontAwesomeIcon icon={faFileArrowDown} />
+            <span>{text.cta}</span>
           </a>
         </motion.div>
 
