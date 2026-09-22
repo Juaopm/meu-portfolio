@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lottie } from "lottie-react";
+import type { LottieHandle } from "lottie-react";
 import robotAnimation from "../assets/robot-animation.json";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -21,6 +22,7 @@ export const Hero: React.FC = () => {
   const { language } = useLanguage();
 
   const [indiceTitulo, setIndiceTitulo] = useState(0);
+  const lottieRef = useRef<LottieHandle>(null);
 
   const textos = {
     pt: {
@@ -47,6 +49,11 @@ export const Hero: React.FC = () => {
 
     return () => clearInterval(intervalo);
   }, [language, titulos.length]);
+
+  // Garante que a animação do Lottie toque no mobile (autoplay pode não disparar sozinho)
+  useEffect(() => {
+    lottieRef.current?.play();
+  }, []);
 
   return (
     <section
@@ -130,7 +137,7 @@ export const Hero: React.FC = () => {
           className="lg:col-span-5 flex justify-center items-center"
         >
           <div className="w-full max-w-md h-96 flex items-center justify-center drop-shadow-[0_0_30px_rgba(90,24,154,0.3)]">
-            <Lottie src={robotAnimation} autoplay loop />
+            <Lottie lottieRef={lottieRef} src={robotAnimation} loop autoplay />
           </div>
         </motion.div>
       </div>

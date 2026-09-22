@@ -48,7 +48,7 @@ const projects: Record<"pt" | "en", Project[]> = {
     {
       title: "Nail Studio",
       type: "Projeto real",
-      status: "Em desenvolvimento",
+      status: "Concluído",
       description:
         "Aplicação desenvolvida para um estúdio de unhas, unindo apresentação de serviços, portfólio e fluxo de solicitação de agendamento.",
       technologies: ["React", "TypeScript", "Java", "Spring Boot", "Supabase"],
@@ -117,7 +117,7 @@ const projects: Record<"pt" | "en", Project[]> = {
     {
       title: "Nail Studio",
       type: "Real-world project",
-      status: "In development",
+      status: "Completed",
       description:
         "An application developed for a nail studio, combining service presentation, portfolio, and appointment request flow.",
       technologies: ["React", "TypeScript", "Java", "Spring Boot", "Supabase"],
