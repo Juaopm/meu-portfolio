@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 import nailStudioImage from "../assets/Nail-Studio.jpg";
 import automationFlowImage from "../assets/automation-flow.jpg";
 import matchTrackerImage from "../assets/matchTrackerImage.png";
@@ -21,76 +22,177 @@ interface Project {
   highlights: string[];
 }
 
-const projects: Project[] = [
-  {
-    title: "MatchTracker",
-    type: "Projeto pessoal",
-    status: "Em desenvolvimento",
-    description:
-      "Plataforma para registrar partidas de CS2, acompanhar desempenho e visualizar estatísticas ao longo do tempo.",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
-    image: matchTrackerImage,
-    repositories: [
-      {
-        label: "GitHub",
-        url: "https://github.com/Juaopm/matchtracker-web",
-      },
-    ],
-    highlights: [
-      "Componentização e reutilização de interfaces",
-      "Dashboard com estatísticas e visualização de dados",
-      "Organização de estados e histórico de partidas",
-    ],
-  },
+const projects: Record<"pt" | "en", Project[]> = {
+  pt: [
+    {
+      title: "MatchTracker",
+      type: "Projeto pessoal",
+      status: "Em desenvolvimento",
+      description:
+        "Plataforma para registrar partidas de CS2, acompanhar desempenho e visualizar estatísticas ao longo do tempo.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      image: matchTrackerImage,
+      repositories: [
+        {
+          label: "GitHub",
+          url: "https://github.com/Juaopm/matchtracker-web",
+        },
+      ],
+      highlights: [
+        "Componentização e reutilização de interfaces",
+        "Dashboard com estatísticas e visualização de dados",
+        "Organização de estados e histórico de partidas",
+      ],
+    },
 
-  {
-    title: "Nail Studio",
-    type: "Projeto real",
-    status: "Em desenvolvimento",
-    description:
-      "Aplicação desenvolvida para um estúdio de unhas, unindo apresentação de serviços, portfólio e fluxo de solicitação de agendamento.",
-    technologies: ["React", "TypeScript", "Java", "Spring Boot", "Supabase"],
-    image: nailStudioImage,
-    repositories: [
-      {
-        label: "Front-end",
-        url: "https://github.com/Juaopm/studio-nail-web",
-      },
-      {
-        label: "Back-end",
-        url: "https://github.com/Juaopm/studio-nail-api",
-      },
-    ],
-    highlights: [
-      "Interface responsiva e mobile-first",
-      "Integração entre front-end, back-end e banco de dados",
-      "Formulário de solicitação e persistência de dados",
-    ],
-  },
+    {
+      title: "Nail Studio",
+      type: "Projeto real",
+      status: "Em desenvolvimento",
+      description:
+        "Aplicação desenvolvida para um estúdio de unhas, unindo apresentação de serviços, portfólio e fluxo de solicitação de agendamento.",
+      technologies: ["React", "TypeScript", "Java", "Spring Boot", "Supabase"],
+      image: nailStudioImage,
+      repositories: [
+        {
+          label: "Front-end",
+          url: "https://github.com/Juaopm/studio-nail-web",
+        },
+        {
+          label: "Back-end",
+          url: "https://github.com/Juaopm/studio-nail-api",
+        },
+      ],
+      highlights: [
+        "Interface responsiva e mobile-first",
+        "Integração entre front-end, back-end e banco de dados",
+        "Formulário de solicitação e persistência de dados",
+      ],
+    },
 
-  {
-    title: "Fluxo de Reuniões",
-    type: "Projeto de automação",
-    status: "Concluído",
-    description:
-      "Workflow de automação desenvolvido para identificar reuniões próximas, validar dias úteis e enviar notificações automaticamente via Discord.",
-    technologies: ["n8n", "JavaScript", "Google Sheets", "Discord API"],
-    image: automationFlowImage,
-    repositories: [
-      {
-        label: "GitHub",
-        url: "https://github.com/Juaopm/task-notification-automation",
-      },
-    ],
-    highlights: [
-      "Automação do fluxo de notificações de reuniões",
-      "Validação de dias úteis e janela de execução",
-      "Integração entre Google Sheets, n8n e Discord",
-    ],
-  },
-];
+    {
+      title: "Fluxo de Reuniões",
+      type: "Projeto de automação",
+      status: "Concluído",
+      description:
+        "Workflow de automação desenvolvido para identificar reuniões próximas, validar dias úteis e enviar notificações automaticamente via Discord.",
+      technologies: ["n8n", "JavaScript", "Google Sheets", "Discord API"],
+      image: automationFlowImage,
+      repositories: [
+        {
+          label: "GitHub",
+          url: "https://github.com/Juaopm/task-notification-automation",
+        },
+      ],
+      highlights: [
+        "Automação do fluxo de notificações de reuniões",
+        "Validação de dias úteis e janela de execução",
+        "Integração entre Google Sheets, n8n e Discord",
+      ],
+    },
+  ],
+
+  en: [
+    {
+      title: "MatchTracker",
+      type: "Personal project",
+      status: "In development",
+      description:
+        "A platform for recording CS2 matches, tracking performance, and visualizing statistics over time.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      image: matchTrackerImage,
+      repositories: [
+        {
+          label: "GitHub",
+          url: "https://github.com/Juaopm/matchtracker-web",
+        },
+      ],
+      highlights: [
+        "Componentization and reusable interfaces",
+        "Dashboard with statistics and data visualization",
+        "State organization and match history",
+      ],
+    },
+
+    {
+      title: "Nail Studio",
+      type: "Real-world project",
+      status: "In development",
+      description:
+        "An application developed for a nail studio, combining service presentation, portfolio, and appointment request flow.",
+      technologies: ["React", "TypeScript", "Java", "Spring Boot", "Supabase"],
+      image: nailStudioImage,
+      repositories: [
+        {
+          label: "Front-end",
+          url: "https://github.com/Juaopm/studio-nail-web",
+        },
+        {
+          label: "Back-end",
+          url: "https://github.com/Juaopm/studio-nail-api",
+        },
+      ],
+      highlights: [
+        "Responsive, mobile-first interface",
+        "Integration between front-end, back-end, and database",
+        "Request form and data persistence",
+      ],
+    },
+
+    {
+      title: "Meeting Flow",
+      type: "Automation project",
+      status: "Completed",
+      description:
+        "An automation workflow designed to identify upcoming meetings, validate business days, and automatically send notifications via Discord.",
+      technologies: ["n8n", "JavaScript", "Google Sheets", "Discord API"],
+      image: automationFlowImage,
+      repositories: [
+        {
+          label: "GitHub",
+          url: "https://github.com/Juaopm/task-notification-automation",
+        },
+      ],
+      highlights: [
+        "Automated meeting notification workflow",
+        "Business-day and execution-window validation",
+        "Integration between Google Sheets, n8n, and Discord",
+      ],
+    },
+  ],
+};
 
 export const Projects: React.FC = () => {
+  const { language } = useLanguage();
+
+  const texts = {
+    pt: {
+      label: "// O QUE EU CONSTRUÍ",
+      title: "Projetos",
+      description:
+        "Projetos que representam minha evolução e minha forma de transformar ideias em aplicações.",
+      explored: "// O QUE EXPLOREI",
+      viewProject: "Ver projeto →",
+      footerLabel: "// SEMPRE CONSTRUINDO",
+      footerDescription:
+        "Novos projetos e aprendizados fazem parte da jornada.",
+    },
+    en: {
+      label: "// WHAT I BUILT",
+      title: "Projects",
+      description:
+        "Projects that reflect my growth and how I turn ideas into applications.",
+      explored: "// WHAT I EXPLORED",
+      viewProject: "View project →",
+      footerLabel: "// ALWAYS BUILDING",
+      footerDescription:
+        "New projects and new lessons are always part of the journey.",
+    },
+  };
+
+  const currentProjects = projects[language];
+  const text = texts[language];
+
   return (
     <section
       id="projetos"
@@ -106,16 +208,15 @@ export const Projects: React.FC = () => {
           className="flex flex-col items-center gap-3 mb-20 text-center"
         >
           <span className="font-mono text-purple-400 text-sm tracking-wider uppercase">
-            // O QUE EU CONSTRUÍ
+            {text.label}
           </span>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Projetos
+            {text.title}
           </h2>
 
           <p className="max-w-2xl text-gray-400 text-sm sm:text-base leading-relaxed mt-2">
-            Projetos que representam minha evolução e minha forma de transformar
-            ideias em aplicações.
+            {text.description}
           </p>
 
           <div className="w-16 h-1 bg-linear-to-r from-purple-500 to-[#5A189A] rounded-full mt-2"></div>
@@ -123,9 +224,9 @@ export const Projects: React.FC = () => {
 
         {/* Lista de Projetos */}
         <div className="flex flex-col gap-24">
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <motion.article
-              key={project.title}
+              key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -202,7 +303,7 @@ export const Projects: React.FC = () => {
                 {/* O que explorei */}
                 <div className="mb-8">
                   <span className="font-mono text-xs tracking-wider uppercase text-purple-400">
-                    // O QUE EXPLOREI
+                    {text.explored}
                   </span>
 
                   <ul className="mt-4 flex flex-col gap-3">
@@ -230,7 +331,7 @@ export const Projects: React.FC = () => {
                         rel="noopener noreferrer"
                         className="font-mono text-sm text-purple-400 hover:text-purple-300 transition-colors"
                       >
-                        Ver projeto →
+                        {text.viewProject}
                       </a>
                     )}
 
@@ -262,12 +363,10 @@ export const Projects: React.FC = () => {
           className="flex flex-col items-center text-center mt-28"
         >
           <span className="font-mono text-purple-400 text-sm">
-            // SEMPRE CONSTRUINDO
+            {text.footerLabel}
           </span>
 
-          <p className="text-gray-500 text-sm mt-3">
-            Novos projetos e aprendizados fazem parte da jornada.
-          </p>
+          <p className="text-gray-500 text-sm mt-3">{text.footerDescription}</p>
         </motion.div>
       </div>
     </section>

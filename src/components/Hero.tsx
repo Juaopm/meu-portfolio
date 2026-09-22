@@ -2,23 +2,51 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lottie } from "lottie-react";
 import robotAnimation from "../assets/robot-animation.json";
+import { useLanguage } from "../context/LanguageContext";
 
-const titulosDinamicos = [
-  "Full-Stack Developer em formação",
-  "Transformando ideias em código",
-  "Sempre aprendendo, sempre construindo",
-];
+const titulosDinamicos = {
+  pt: [
+    "Desenvolvedor Full-Stack em formação",
+    "Transformando ideias em código",
+    "Sempre aprendendo, sempre construindo",
+  ],
+  en: [
+    "Full-Stack Developer in training",
+    "Turning ideas into code",
+    "Always learning, always building",
+  ],
+};
 
 export const Hero: React.FC = () => {
+  const { language } = useLanguage();
+
   const [indiceTitulo, setIndiceTitulo] = useState(0);
+
+  const textos = {
+    pt: {
+      saudacao: "Olá, eu sou",
+      descricao:
+        "Explorando o desenvolvimento de software de ponta a ponta, do desenvolvimento de interfaces à construção de APIs e integração de sistemas.",
+    },
+    en: {
+      saudacao: "Hi, I'm",
+      descricao:
+        "Exploring end-to-end software development, from building interfaces to creating APIs and integrating systems.",
+    },
+  };
+
+  const titulos = titulosDinamicos[language];
 
   // Efeito para alternar o subtítulo dinamicamente
   useEffect(() => {
+    setIndiceTitulo(0);
+
     const intervalo = setInterval(() => {
-      setIndiceTitulo((prev) => (prev + 1) % titulosDinamicos.length);
+      setIndiceTitulo((prev) => (prev + 1) % titulos.length);
     }, 4000);
+
     return () => clearInterval(intervalo);
-  }, []);
+  }, [language, titulos.length]);
 
   return (
     <section
@@ -34,7 +62,7 @@ export const Hero: React.FC = () => {
           className="lg:col-span-7 flex flex-col items-start justify-center gap-6"
         >
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Olá, eu sou <br />
+            {textos[language].saudacao} <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-[#5A189A]">
               João Pedro
             </span>
@@ -42,26 +70,26 @@ export const Hero: React.FC = () => {
 
           {/* Subtítulo dinâmico */}
           <div className="h-8 flex items-center text-xl sm:text-2xl font-mono text-purple-300">
-            <span>&gt; </span>
+            <span>&gt;</span>
+
             <AnimatePresence mode="wait">
               <motion.span
-                key={indiceTitulo}
+                key={`${language}-${indiceTitulo}`}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
                 className="ml-2 font-semibold"
               >
-                {titulosDinamicos[indiceTitulo]}
+                {titulos[indiceTitulo]}
               </motion.span>
             </AnimatePresence>
-            <span className="animate-ping ml-1 w-2 h-5 bg-purple-500 inline-block"></span>
+
+            <span className="animate-ping ml-1 w-2 h-5 bg-purple-500 inline-block" />
           </div>
 
           <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
-            Explorando o desenvolvimento de software de ponta a ponta, do
-            desenvolvimento de interfaces à construção de APIs e integração de
-            sistemas.
+            {textos[language].descricao}
           </p>
 
           {/* Ícones de Redes Sociais */}
@@ -88,13 +116,13 @@ export const Hero: React.FC = () => {
               className="p-3 bg-[#13111c] hover:bg-[#3C096C] border border-[#5A189A]/30 text-gray-300 hover:text-white transition-all rounded-xl shadow-md hover:scale-105"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
             </a>
           </div>
         </motion.div>
 
-        {/* Lado Direito: Robozinho Lottie centralizado e ampliado */}
+        {/* Lado Direito: Robozinho Lottie */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

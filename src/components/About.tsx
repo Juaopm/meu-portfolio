@@ -1,8 +1,63 @@
 import React from "react";
 import { motion } from "framer-motion";
 import PerfilImage from "../assets/perfil.jpeg";
+import { useLanguage } from "../context/LanguageContext";
 
 export const About: React.FC = () => {
+  const { language } = useLanguage();
+
+  const textos = {
+    pt: {
+      label: "// Quem sou eu",
+      titulo: "Sobre Mim",
+      descricao: (
+        <>
+          Sou estudante de{" "}
+          <span className="text-white font-medium">
+            Análise e Desenvolvimento de Sistemas
+          </span>{" "}
+          e desenvolvedor em formação. Gosto de aprender construindo,
+          transformando ideias e problemas reais em aplicações funcionais. Tenho
+          experiência prática em projetos utilizando{" "}
+          <span className="text-white font-medium">
+            React, TypeScript, Java, Spring Boot, SQL e automação com n8n
+          </span>
+          , explorando desde a construção de interfaces até APIs, bancos de
+          dados e integrações. Atualmente, meu foco é evoluir como desenvolvedor
+          Full Stack, fortalecendo principalmente meus conhecimentos em
+          back-end, arquitetura e integração de sistemas.
+        </>
+      ),
+      cta: "Conheça meus projetos",
+    },
+
+    en: {
+      label: "// About me",
+      titulo: "About Me",
+      descricao: (
+        <>
+          I'm a student of{" "}
+          <span className="text-white font-medium">
+            Systems Analysis and Development
+          </span>{" "}
+          and a developer in training. I enjoy learning by building, turning
+          real-world ideas and problems into functional applications. I have
+          hands-on experience with projects using{" "}
+          <span className="text-white font-medium">
+            React, TypeScript, Java, Spring Boot, SQL, and n8n automation
+          </span>
+          , exploring everything from interface development to APIs, databases,
+          and system integrations. Currently, my focus is on growing as a
+          Full-Stack Developer, with an emphasis on back-end development,
+          architecture, and system integration.
+        </>
+      ),
+      cta: "Explore my projects",
+    },
+  };
+
+  const texto = textos[language];
+
   return (
     <section
       id="sobre"
@@ -39,36 +94,23 @@ export const About: React.FC = () => {
         >
           <div className="flex flex-col gap-2">
             <span className="font-mono text-purple-400 text-sm tracking-wider uppercase">
-              // Quem sou eu
+              {texto.label}
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              Sobre Mim
+              {texto.titulo}
             </h2>
           </div>
 
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
-            Sou estudante de{" "}
-            <span className="text-white font-medium">
-              Análise e Desenvolvimento de Sistemas
-            </span>{" "}
-            e desenvolvedor em formação. Gosto de aprender construindo,
-            transformando ideias e problemas reais em aplicações funcionais.
-            Tenho experiência prática em projetos utilizando{" "}
-            <span className="text-white font-medium">
-              React, TypeScript, Java, Spring Boot, SQL e automação com n8n
-            </span>
-            , explorando desde a construção de interfaces até APIs, bancos de
-            dados e integrações. Atualmente, meu foco é evoluir como
-            desenvolvedor Full Stack, fortalecendo principalmente meus
-            conhecimentos em back-end, arquitetura e integração de sistemas.
+            {texto.descricao}
           </p>
 
           <a
             href="#projetos"
             className="inline-flex items-center gap-2 mt-1 text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors"
           >
-            <span>Conheça meus projetos</span>
+            <span>{texto.cta}</span>
 
             <svg
               className="w-4 h-4"
