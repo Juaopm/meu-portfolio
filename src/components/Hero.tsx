@@ -5,8 +5,8 @@ import robotAnimation from "../assets/robot-animation.json";
 
 const titulosDinamicos = [
   "Full-Stack Developer em formação",
-  "Estudante de ADS",
-  "Apaixonado por Tecnologia",
+  "Transformando ideias em código",
+  "Sempre aprendendo, sempre construindo",
 ];
 
 export const Hero: React.FC = () => {
@@ -59,9 +59,9 @@ export const Hero: React.FC = () => {
           </div>
 
           <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
-            Explorando o desenvolvimento de software de ponta a ponta, unindo a
-            robustez do back-end com a fluidez e interatividade do front-end
-            moderno.
+            Explorando o desenvolvimento de software de ponta a ponta, do
+            desenvolvimento de interfaces à construção de APIs e integração de
+            sistemas.
           </p>
 
           {/* Ícones de Redes Sociais */}
