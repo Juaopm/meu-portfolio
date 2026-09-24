@@ -47,7 +47,7 @@ Se você quiser clonar e rodar o projeto na sua máquina, siga os passos abaixo:
 
 ```bash
 # 1. Clone o repositório
-git clone [https://github.com/Juaopm/meu-portfolio.git](https://github.com/Juaopm/meu-portfolio.git)
+git clone https://github.com/Juaopm/meu-portfolio.git
 
 # 2. Entre na pasta do projeto
 cd meu-portfolio
