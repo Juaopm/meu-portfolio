@@ -1,32 +1,68 @@
-# React + TypeScript + Vite
+# 🚀 Portfolio Full-Stack — João Pedro
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+[![Status](https://img.shields.io/badge/Status-Em%20Produ%C3%A7%C3%A3o-success?style=for-the-badge&color=9333ea)](https://joaopmota.dev)
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=black)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[🌐 Acessar o Portfólio ao Vivo](https://joaopmota.dev)
 
-## React Compiler
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 💻 Sobre o Projeto
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Portfólio pessoal e profissional desenvolvido com foco em uma experiência de usuário fluida, design limpo e identidade visual moderna (estética *developer-first*). O projeto foi construído para apresentar minha trajetória, habilidades técnicas e principais projetos de desenvolvimento de software, contando com suporte bilíngue (**PT/EN**).
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+---
+
+## 🛠️ Tecnologias e Ferramentas
+
+O projeto foi desenvolvido utilizando uma stack moderna e de alta performance:
+
+* **Front-End:** React, TypeScript / JavaScript, Vite
+* **Estilização:** Tailwind CSS
+* **Animações e Efeitos:** Framer Motion, Lottie React
+* **Ícones:** FontAwesome, Lucide React
+* **Deploy & Domínio:** Vercel & Cloudflare (`joaopmota.dev`)
+
+---
+
+## ✨ Principais Funcionalidades
+
+* 🌐 **Interface Bilíngue (PT/EN):** Contexto dinâmico de tradução para alternar entre Português e Inglês sem recarregar a página.
+* 🤖 **Animações Interativas:** Componentes visuais dinâmicos integrados com Lottie e Framer Motion.
+* 📂 **Showcase de Projetos:** Exibição detalhada de projetos com tags de tecnologias utilizadas.
+* 📄 **Download Direto de Currículo:** Integração com botão para download imediato do CV em PDF.
+* 🌙 **Dark Mode Nativo:** Paleta de cores otimizada com foco em tons escuros e acentos em roxo (#c084fc).
+
+---
+
+## ⚙️ Como Executar o Projeto Localmente
+
+Se você quiser clonar e rodar o projeto na sua máquina, siga os passos abaixo:
+
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/Juaopm/meu-portfolio.git](https://github.com/Juaopm/meu-portfolio.git)
+
+# 2. Entre na pasta do projeto
+cd meu-portfolio
+
+# 3. Instale as dependências
+npm install
+
+# 4. Inicie o servidor de desenvolvimento
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## 📬 Conecte-se comigo
+
+* **LinkedIn:** [in/jmotam](https://linkedin.com/in/jmotam/)
+* **E-mail:** joaopedromachado830@gmail.com
+* **Website:** [joaopmota.dev](https://joaopmota.dev)
